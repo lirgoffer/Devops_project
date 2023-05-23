@@ -5,7 +5,7 @@ orbs:
 executers:
   my-exe:
     docker:
-       image: cimg/node:19.8.0
+      - image: cimg/node:19.8.0
        auth:
          username: $DOCKER_HUB_USER
          password: $DOCKER_HUB_PASSWORD
