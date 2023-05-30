@@ -1,12 +1,40 @@
-<table>
-    <tr> 
-      <td>Column 1</td>
-      <td>Column 2</td>
-      <td>Column 3</td>
-    </tr>
-    <tr> 
-      <td>Column 1</td>
-      <td>Column 2</td>
-      <td>Column 3</td>
-    </tr>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Grades</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Grades</h1>
+  <table id="gradesTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Exam 1</th>
+        <th>Exam 2</th>
+        <th>Exam 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table rows will be dynamically populated using JavaScript -->
+    </tbody>
   </table>
+
+  <script src="index.js"></script>
+</body>
+</html>
