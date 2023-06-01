@@ -14,7 +14,7 @@ const students = [
   
   // Function to populate the table with student grades
   function populateTable() {
-    const gradeTable = document.getElementById('grade-table');
+    const gradeTable = document.getElementById('gradesTable');
   
     students.forEach((student) => {
       const row = document.createElement('tr');
@@ -39,7 +39,3 @@ const students = [
     });
   }
   
-  // Call the populateTable function when the DOM content is loaded
-  module.exports = populateTable;
-  
-
