@@ -1,6 +1,20 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const body_parser = require('body-parser');
+const gradesRouter = require("./routes/grades_route");
+
+app.use(body_parser.urlencoded({ extended: true, limit: 'lmb'}));
+app.use(body_parser.json());
+
+app.use("/grades", gradesRouter);
+
+app.post("/grades", (req, res) => {
+    const { name, exam1, exam2, exam3 } = req.body;
+    database.storeRegistration(name, exam1, exam2, exam3);
+    res.sendStatus(200);
+  });
+  
 
 const mongoose = require("mongoose");
 const database = module.exports = () => {
@@ -13,15 +27,12 @@ const database = module.exports = () => {
        
             , connectionParams
         )
-        console.log("database connected");
-
+        console.log("database connected")
 
     } catch (error) {
-        console.log('error')
-        
+        console.log('error')  
     }
 }
-
 database();
 
 app.use(express.static(path.join(__dirname, 'html')));
