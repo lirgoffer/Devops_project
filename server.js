@@ -10,6 +10,7 @@ const database = module.exports = () => {
     }
     try {
         mongoose.connect('mongodb+srv://lirg177:Lr220520@cluster0.hajlzup.mongodb.net/mongodb?retryWrites=true&w=majority'
+       
             , connectionParams
         )
         console.log("database connected");
