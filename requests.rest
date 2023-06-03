@@ -2,20 +2,4 @@
 
 GET http://localhost:3000/
 
-###
 
-GET http://localhost:3001/page
-
-
-###
-
-POST http://localhost:3001/grades
-
-
-###
-
-POST http://localhost:3001/grades
-
-###
-
-GET http://localhost:3001/students
