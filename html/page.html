@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>Devops Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 20px;
       background-color: #f5f5f5;
     }
@@ -136,7 +137,6 @@
       text-align: center;
       font-size: 14px;
       color: #888888;
-      text-align: left;
     }
 
     #summarySection h3 {
@@ -144,13 +144,13 @@
       font-weight: bold;
       margin-bottom: 10px;
       color: #010004;
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     #summarySection p {
       font-size: 16px;
       margin-bottom: 5px;
-      color: #95e2ce;
+      color: #060606;
       text-align: left;
     }
   </style>
@@ -160,7 +160,7 @@
     <h1 style="color: rgb(163, 214, 192)">Devops Project</h1>
     <p>Please fill up the following details:</p>
     <form id="gradeForm">
-      <label for="fullName">Student full Name:</label>
+      <label for="fullName">Student full name:</label>
       <input type="text" id="fullName" required />
       <label for="grade1">#1 grade:</label>
       <input type="number" id="grade1" min="0" max="100" required />
@@ -276,7 +276,7 @@
       const highestAverage = getHighestAverage(students);
       const lowestAverage = getLowestAverage(students);
 
-      let summaryHtml = "<h3>Details</h3>";
+      let summaryHtml = "<h3>Extra details</h3>";
       summaryHtml += `<p><strong>Students number:</strong> ${numStudents}</p>`;
       summaryHtml += `<p><strong>The highest average:</strong> ${highestAverage.fullName} with average of ${highestAverage.average.toFixed(2)}</p>`;
       summaryHtml += `<p><strong>The lowest average:</strong> ${lowestAverage.fullName} with average of ${lowestAverage.average.toFixed(2)}</p>`;
