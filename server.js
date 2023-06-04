@@ -1,39 +1,47 @@
 const express = require('express');
+
 const path = require('path');
+
 const app = express();
-const body_parser = require('body-parser');
-const gradesRouter = require("./routes/grades_route");
+const bodyParser = require('body-parser');
 
-app.use(body_parser.urlencoded({ extended: true, limit: 'lmb'}));
-app.use(body_parser.json());
+const mongoose = require('mongoose');
 
-app.use("/grades", gradesRouter);
+const gradesRouter = require('./routes/grades_route');
 
-app.post("/grades", (req, res) => {
-    const { name, exam1, exam2, exam3 } = req.body;
-    database.storeRegistration(name, exam1, exam2, exam3);
-    res.sendStatus(200);
-  });
-  
+app.use(bodyParser.urlencoded({ extended: true, limit: 'lmb' }));
+app.use(bodyParser.json());
 
-const mongoose = require("mongoose");
-const database = module.exports = () => {
-    const connectionParams = {
-        useNewUrlParser: true, 
-        useUnifiedTopology: true,
-    }
-    try {
-        mongoose.connect('mongodb+srv://lirg177:Lr220520@cluster0.hajlzup.mongodb.net/mongodb?retryWrites=true&w=majority'
-       
-            , connectionParams
-        )
-        console.log("database connected")
+app.use('/grades', gradesRouter);
 
-    } catch (error) {
-        console.log('error')  
-    }
-}
+const database = () => {
+  const connectionParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  };
+
+  try {
+    mongoose.connect(
+      'mongodb+srv://lirg177:Lr220520@cluster0.hajlzup.mongodb.net/mongodb?retryWrites=true&w=majority',
+      connectionParams,
+    );
+    console.log('database connected');
+  } catch (error) {
+    console.log('error');
+  }
+};
+
+module.exports = database;
+
 database();
+
+app.post('/grades', (req, res) => {
+  const {
+    name, exam1, exam2, exam3,
+  } = req.body;
+  database.storeRegistration(name, exam1, exam2, exam3);
+  res.sendStatus(200);
+});
 
 app.use(express.static(path.join(__dirname, 'html')));
 
